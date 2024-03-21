@@ -1,0 +1,61 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Link;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        // User::factory(10)->create();
+
+        User::create([
+            'name' => 'admin',
+            'password' => Hash::make('admin'),
+        ]);
+
+        $links = [
+            'https://www.google.com/search?q=my+ana+pro&oq=my+ana+pro&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGEAyBggCEEUYOzIGCAMQRRg7MgYIBBBFGDzSAQgzMzgzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8',
+            'https://www.google.com/search?q=laravel&sca_esv=58652087346d5a22&sxsrf=ACQVn0-cXnL07XbZ4zTOd2Tii5flkAtJpA%3A1710939152215&ei=ENz6Ze3ODOelkdUPlI2J6Ak&ved=0ahUKEwjtlpmD8YKFAxXnUqQEHZRGAp0Q4dUDCBA&uact=5&oq=laravel&gs_lp=Egxnd3Mtd2l6LXNlcnAiB2xhcmF2ZWwyChAjGIAEGIoFGCcyChAjGIAEGIoFGCcyChAjGIAEGIoFGCcyBRAAGIAEMgUQABiABDILEAAYgAQYsQMYgwEyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESN4YUMQMWIQVcAF4AJABAJgB5QGgAdwGqgEFNC4yLjG4AQPIAQD4AQGYAgegAv4GwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhiABBixAxjHARjRA8ICChAuGIAEGIoFGEPCAgoQABiABBiKBRhDwgIIEC4YgAQYsQPCAggQABiABBixA8ICDRAuGIAEGMcBGNEDGArCAg0QABiABBiKBRhDGLEDwgINEC4YgAQYigUYQxixA8ICCxAuGIMBGLEDGIAEwgINEC4YgAQYigUYQxjUAsICCxAuGIAEGMcBGK8BwgIFEC4YgASYAwCIBgGSBwU0LjIuMaAH_HM&sclient=gws-wiz-serp',
+            'https://www.google.com/search?q=Bootsrap&sca_esv=58652087346d5a22&sxsrf=ACQVn08FoWT1guirXgZ9ap7SU0sMmb-wnw%3A1710939420543&ei=HN36ZeXWINunkdUPmM2IsAg&ved=0ahUKEwjl1JKD8oKFAxXbU6QEHZgmAoYQ4dUDCBA&uact=5&oq=Bootsrap&gs_lp=Egxnd3Mtd2l6LXNlcnAiCEJvb3RzcmFwMgcQIxixAhgnMgcQIxixAhgnMgcQIxixAhgnMgoQABiABBiKBRhDMgoQABiABBiKBRhDMg0QABiABBgKGLEDGIMBMg0QABiABBgKGLEDGIMBMg0QABiABBgKGLEDGIMBMg0QABiABBgKGLEDGIMBMgoQABiABBgKGLEDSL8PUABYkg5wAHgBkAEAmAGpAaAB1AaqAQM0LjS4AQPIAQD4AQGYAgigAvoGwgIKECMYgAQYigUYJ8ICBBAjGCfCAgUQLhiABMICDhAuGIAEGLEDGMcBGNEDwgIIEAAYgAQYsQPCAhEQLhiABBixAxiDARjHARjRA8ICCxAAGIAEGLEDGIMBwgIREC4YgwEYxwEYsQMY0QMYgATCAgsQLhiABBixAxiDAcICERAuGIAEGLEDGIMBGMcBGK8BwgIFEAAYgATCAg4QABiABBiKBRixAxiDAZgDAJIHAzQuNKAHu14&sclient=gws-wiz-serp',
+            'https://www.google.com/search?q=docker&sca_esv=58652087346d5a22&sxsrf=ACQVn09lcnqjrB_sJAFcJLjR2RtDnCn29A%3A1710939450798&ei=Ot36ZYSvMJWbkdUPzpyXgAY&ved=0ahUKEwiEtMmR8oKFAxWVTaQEHU7OBWAQ4dUDCBA&uact=5&oq=docker&gs_lp=Egxnd3Mtd2l6LXNlcnAiBmRvY2tlcjIQEAAYgAQYigUYQxixAxiDATIQEAAYgAQYigUYQxixAxiDATIKEAAYgAQYigUYQzILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATINEAAYgAQYigUYQxixAzIKEAAYgAQYigUYQzILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBSKMHUABYwwZwAHgBkAEAmAF5oAGGBKoBAzUuMbgBA8gBAPgBAZgCBqACowTCAgoQIxiABBiKBRgnwgIEECMYJ8ICERAuGIAEGLEDGIMBGMcBGNEDwgIFEAAYgATCAg4QLhiABBixAxjHARjRA8ICChAuGIAEGIoFGCfCAgwQIxiABBiKBRgTGCfCAhcQLhiABBiKBRiXBRjcBBjeBBjfBNgBAZgDAOIDBRIBMSBAugYGCAEQARgUkgcDNS4xoAeXNw&sclient=gws-wiz-serp',
+            'https://www.google.com/search?q=symfony&sca_esv=58652087346d5a22&sxsrf=ACQVn09r--AkDHotV6P43if56rz0QZzHLQ%3A1710939464031&ei=SN36ZYbDAZ2jkdUP5JmdmAM&ved=0ahUKEwiGh_GX8oKFAxWdUaQEHeRMBzMQ4dUDCBA&uact=5&oq=symfony&gs_lp=Egxnd3Mtd2l6LXNlcnAiB3N5bWZvbnkyBBAjGCcyChAjGIAEGIoFGCcyChAAGIAEGIoFGEMyEBAAGIAEGIoFGEMYsQMYgwEyCxAAGIAEGLEDGIMBMgUQABiABDIKEAAYgAQYigUYQzILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBMgUQABiABEibEVAAWJoQcAF4AZABAJgBxQGgAcEGqgEDNi4yuAEDyAEA-AEBmAIJoALsBsICDhAuGIAEGIoFGLEDGIMBwgIQEC4YgAQYigUYQxjHARjRA8ICDhAuGIMBGLEDGIAEGIoFwgIKEC4YgAQYigUYQ8ICCBAAGIAEGLEDwgILEC4YgAQYxwEYrwHCAgcQIxixAhgnwgINEAAYgAQYChixAxiDAcICBxAAGIAEGAqYAwCSBwU2LjIuMaAH-0k&sclient=gws-wiz-serp',
+            'https://www.google.com/search?q=javscript&sca_esv=58652087346d5a22&sxsrf=ACQVn0_0gjYClxBN5k3GzGKdaq7hAW24iQ%3A1710939501550&ei=bd36ZfeZIeWkkdUP2tytoAM&ved=0ahUKEwi3hOOp8oKFAxVlUqQEHVpuCzQQ4dUDCBA&uact=5&oq=javscript&gs_lp=Egxnd3Mtd2l6LXNlcnAiCWphdnNjcmlwdDIQEAAYgAQYigUYQxixAxiDATIKEAAYgAQYigUYQzINEAAYgAQYChixAxiDATIKEAAYgAQYChixAzIKEAAYgAQYChixAzINEAAYgAQYChixAxiDATINEAAYgAQYChixAxiDATIHEAAYgAQYCjIKEAAYgAQYChixAzINEAAYgAQYChixAxiDAUjmLFDlGFjWJnABeAGQAQCYAbgBoAHyBqoBAzYuM7gBA8gBAPgBAZgCCqACoAfCAgcQIxiwAxgnwgIKEAAYRxjWBBiwA8ICDRAAGIAEGIoFGEMYsAPCAgoQIxiABBiKBRgnwgIQEC4YgAQYigUYQxjHARjRA8ICBRAuGIAEwgIOEAAYgAQYigUYsQMYgwHCAhEQLhiABBixAxiDARjHARjRA8ICDRAAGIAEGIoFGEMYsQPCAgsQLhiABBixAxiDAcICCBAuGIAEGLEDwgILEC4YgAQYxwEY0QPCAg4QLhiABBiKBRixAxiDAcICBRAAGIAEwgIIEAAYgAQYsQPCAgsQABiABBixAxiDAZgDAIgGAZAGCpIHAzcuM6AHj18&sclient=gws-wiz-serp',
+            'https://www.google.com/search?q=chatgpt&sca_esv=58652087346d5a22&sxsrf=ACQVn09SwwGhgZ2nR9TPkQrlsY5wKGyTDA%3A1710939558175&ei=pt36ZaKaCuqpkdUP_7iK6Ac&ved=0ahUKEwiihePE8oKFAxXqVKQEHX-cAn0Q4dUDCBA&uact=5&oq=chatgpt&gs_lp=Egxnd3Mtd2l6LXNlcnAiB2NoYXRncHQyChAjGIAEGIoFGCcyCBAAGIAEGLEDMgoQABiABBiKBRhDMhAQABiABBiKBRhDGLEDGIMBMgsQABiABBixAxiDATILEAAYgAQYigUYsQMyCxAAGIAEGLEDGIMBMgoQABiABBiKBRhDMgsQABiABBixAxiDATIIEAAYgAQYsQNIyQZQ5QRY5QRwAXgBkAEAmAFloAFlqgEDMC4xuAEDyAEA-AEBmAICoAJuwgIKEAAYRxjWBBiwA8ICDRAAGIAEGIoFGEMYsAPCAhkQLhiABBiKBRhDGMcBGNEDGMgDGLAD2AEBmAMAiAYBkAYMugYECAEYCJIHAzEuMaAH_QU&sclient=gws-wiz-serp',
+            'https://www.google.com/search?q=linkedin&sca_esv=58652087346d5a22&sxsrf=ACQVn08gHUoloIVAif-mRrXQfcyaIAtdgA%3A1710939561531&ei=qd36Zd_vH_2kkdUP8LqywAw&ved=0ahUKEwif6K_G8oKFAxV9UqQEHXCdDMgQ4dUDCBA&uact=5&oq=linkedin&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGxpbmtlZGluMhMQABiABBiKBRhDGLEDGIMBGMkDMhYQLhiABBiKBRhDGLEDGIMBGMcBGNEDMggQABiABBixAzINEAAYgAQYigUYQxixAzIIEAAYgAQYsQMyCxAAGIAEGLEDGIMBMgoQABiABBiKBRhDMgoQABiABBiKBRhDMg4QABiABBiKBRiSAxi4BDILEAAYgAQYigUYkgNI_xNQAFjwC3AAeAGQAQCYAZsBoAG1BqoBAzUuM7gBA8gBAPgBAZgCCKAC5QbCAgoQIxiABBiKBRgnwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhiABBixAxjHARjRA8ICDBAjGIAEGIoFGBMYJ8ICEBAAGIAEGIoFGEMYsQMYgwHCAgoQABiABBgUGIcCwgIIEC4YgAQYsQPCAgUQABiABMICDhAAGIAEGIoFGLEDGIMBwgIKEC4YgAQYigUYJ8ICDRAAGIAEGBQYhwIYsQPCAgsQLhiABBixAxiDAcICFxAuGIAEGIoFGJcFGNwEGN4EGN8E2AEBmAMAugYGCAEQARgUkgcDNS4zoAekYw&sclient=gws-wiz-serp',
+            'https://www.google.com/search?q=react&sca_esv=58652087346d5a22&sxsrf=ACQVn0_DVjKwuMG9AoWwvhbr0dZCBso8bw%3A1710939577966&ei=ud36ZdK1Oo2YkdUP2aSRwAs&ved=0ahUKEwiS9prO8oKFAxUNTKQEHVlSBLgQ4dUDCBA&uact=5&oq=react&gs_lp=Egxnd3Mtd2l6LXNlcnAiBXJlYWN0MgoQIxiABBiKBRgnMgoQIxiABBiKBRgnMgoQIxiABBiKBRgnMgoQABiABBiKBRhDMhAQABiABBiKBRhDGLEDGIMBMhAQABiABBiKBRhDGLEDGIMBMgsQLhiABBjHARivATIQEAAYgAQYigUYQxixAxiDATILEC4YgAQYxwEYrwEyEBAAGIAEGIoFGEMYsQMYgwFIyQpQAFjEBnAAeAGQAQCYAdEBoAHPBKoBBTIuMi4xuAEDyAEA-AEBmAIFoALjBMICBBAjGCfCAg4QABiABBiKBRixAxiDAcICBRAAGIAEwgILEAAYgAQYsQMYgwHCAhQQLhiABBiKBRixAxiDARjHARivAcICERAuGIAEGLEDGIMBGMcBGNEDwgILEC4YgAQYsQMYgwHCAgoQLhiABBiKBRhDwgINEAAYgAQYigUYQxixA8ICEBAuGIAEGIoFGEMYxwEY0QPCAg0QLhhDGLEDGIAEGIoFwgIIEC4YgAQYsQPCAggQLhixAxiABMICCBAAGIAEGLEDmAMAkgcFMi4yLjGgB5pL&sclient=gws-wiz-serp',
+            'https://www.google.com/search?q=php&sca_esv=58652087346d5a22&sxsrf=ACQVn0-tTo7-EJVLIRUb5AY9uM6-CI3wsA%3A1710939590891&ei=xt36ZZKANpaikdUP3fOL2Aw&ved=0ahUKEwiS-6_U8oKFAxUWUaQEHd35AssQ4dUDCBA&uact=5&oq=php&gs_lp=Egxnd3Mtd2l6LXNlcnAiA3BocDIEECMYJzIEECMYJzIQEAAYgAQYigUYQxixAxiDATINEAAYgAQYigUYQxixAzIKEAAYgAQYigUYQzILEAAYgAQYsQMYgwEyChAAGIAEGIoFGEMyCxAAGIAEGLEDGIMBMgoQABiABBiKBRhDMgoQABiABBiKBRhDSKUEUABYxAJwAHgBkAEAmAHaAaABwAOqAQUxLjEuMbgBA8gBAPgBAZgCA6AC0wPCAgoQIxiABBiKBRgnwgIKEC4YgAQYigUYJ8ICCxAuGIAEGMcBGNEDwgIMEAAYgAQYigUYQxgKwgIXEC4YgAQYigUYlwUY3AQY3gQY3wTYAQGYAwC6BgYIARABGBSSBwUxLjEuMaAHqys&sclient=gws-wiz-serp',
+        ];
+
+        $names = [
+            'My ANA Pro',
+            'Laravel',
+            'Bootstrap',
+            'Docker',
+            'Symfony',
+            'JavaScript',
+            'ChatGPT',
+            'LinkedIn',
+            'React',
+            'PHP',
+        ];
+
+        for ($i = 0; $i < 10; $i++) {
+            Link::create([
+                'link' => $links[$i],
+                'name' => $names[$i],
+                'alias' => fake()->randomLetter() . fake()->randomLetter() . fake()->randomLetter() . fake()->randomLetter() . fake()->randomLetter() . fake()->randomLetter(),
+                'validation_date' => fake()->dateTimeBetween('+1 month', '+3 months'),
+                'show' => fake()->boolean(),
+            ]);
+        }
+    }
+}
