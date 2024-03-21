@@ -3,7 +3,7 @@
 @section('title', $link->exists ? "Editer un lien" : "Créer un lien")
 
 @section('content')
-  <div class="d-flex justify-content-between align-items-center">
+  <div class="d-flex align-items-center gap-2">
     <h1>@yield('title')</h1>
     <a href="{{ route('link.index') }}" class="btn btn-primary">Retourner à la liste</a>
   </div>
@@ -26,6 +26,7 @@
         </div>
       </div>
       <div class="col-md-2">
+        <br />
         <div class="form-check form-switch">
           <input class="form-check-input @error('show') is-invalid @enderror" type="checkbox" role="switch" id="show" {{ $link->show || !$link->exists ? 'checked' : '' }}>
           <label class="form-check-label" for="show">Afficher ?</label>
